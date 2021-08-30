@@ -1,6 +1,6 @@
 console.log('hola');
 
-let distr = [0.1, 0.2, 0.3, 0.5, 0.7, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+let distr = [0.1, 0.2, 0.3, 0.5, 0.7, 0.76, 0.72, 0.33, 0.33, 0.75, 0.88, 0.79, 0.45, 0.36, 0.45]
 
 dGraph('#distrg');
 
@@ -35,14 +35,17 @@ function dGraph(idsvg){
 
     todo.append("g") //es parte de un grupo
         .attr("id", "xMiEje")
+        .attr('class','axis')
         .attr("transform", "translate(0," + Gheight + ")")
         .call(xMiEje)
-        // .selectAll('text')
-        // .attr("y", 0)
-        // .attr("x", 9)
-        // .attr("dy", ".35em")
-        // .attr("transform", "rotate(90)")
-        // .style("text-anchor", "start");
+        .selectAll('text')
+        .style('font-size',14)
+        .style('font-family', 'roboto')
+        .attr("y", 10)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
 
     let yMiEje = d3.axisLeft()
         .scale(miEscalaY)
@@ -61,7 +64,11 @@ function dGraph(idsvg){
 
     todo.append("g") //es parte de un grupo
         .attr("id", "yMiEje")
-        .call(yMiEje);
+        .attr('class','axis')
+        .call(yMiEje)
+        .selectAll('text')
+        .style('font-size',14)
+        .style('font-family', 'roboto');
 
     var valorX  = new Date();
     valorX.setHours(8);

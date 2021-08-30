@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Queue Analytics</title>
+    <style>
+        html,body{
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            background-color: #150A4C;
+            color: white;
+            /*-ms-overflow-style: none;*/
+            /*overflow: -moz-scrollbars-none;*/
+        }
+        html::-webkit-scrollbar {
+            /*width: 0 !important*/
+        }
+
+        .crux_gradient{
+            background: linear-gradient(90deg, rgba(54,171,189,1) 0%, rgb(21, 10, 76) 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .sidebar{
+            position: fixed;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+        .circle_empty {
+            stroke: white;
+            fill: none;
+        }
+        .circle_full {
+            stroke: white;
+            fill: white;
+        }
+        .svg_bullet{
+            height: 1.5rem;
+            width: 1.5rem;
+            cursor: pointer;
+        }
+        h1{
+            font-weight: bold;
+        }
+        .parte_simulacion{
+            /*float: left;*/
+            width: 80%;
+        }
+        .graphsim{
+            width: 100%;
+            min-width: 500px;
+            height: 350px;
+        }
+
+
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<nav class="crux_navbar">
+
+</nav>
+
+<main style="height: 100%">
+    <div class="sidebar">
+        <div class="d-flex">
+            <svg class="svg_bullet"><circle r="0.375rem" cx="0.75rem" cy="0.75rem" id="bullet-home" class="circle_full"></circle></svg>
+            <h4 style="cursor: pointer" onclick="navegar('home')">Home</h4>
+        </div>
+        <div class="d-flex">
+            <svg class="svg_bullet"><circle r="0.375rem" cx="0.75rem" cy="0.75rem" id="bullet-video" class="circle_empty"></circle></svg>
+            <h4 style="cursor: pointer" onclick="navegar('video')">Vídeo</h4>
+        </div>
+        <div class="d-flex">
+            <svg class="svg_bullet"><circle r="0.375rem" cx="0.75rem" cy="0.75rem" id="bullet-productos" class="circle_empty"></circle></svg>
+            <h4 style="cursor: pointer" onclick="navegar('productos')">Productos</h4>
+        </div>
+        <div class="d-flex">
+            <svg class="svg_bullet"><circle r="0.375rem" cx="0.75rem" cy="0.75rem" id="bullet-contacto" class="circle_empty"></circle></svg>
+            <h4 style="cursor: pointer" onclick="navegar('contacto')">Contacto</h4>
+        </div>
+    </div>
+    <div id="home" class="container h-100 align-middle">
+        <div class="row h-100">
+            <div class="col-lg-12 my-auto d-flex">
+                <div class="my-auto" style="height: 20rem; width: 20rem; background-color: white; color: black">Logo</div>
+                <span style="font-size: 10rem; padding-left: 30px; font-weight: bold">Queue<br>Analytics</span>
+            </div>
+        </div>
+    </div>
+    <div id="video" class="container h-100 align-middle">
+        <div class="row h-100">
+            <div class="col-lg-12 h-100 my-auto d-flex">
+                <div><h1 style="padding-top: 50px">Vídeo</h1></div>
+                <div class="h-50 w-75 my-auto" style="background-color: white; color: black">Video</div>
+            </div>
+        </div>
+    </div>
+    <div id="productos" class="container h-100 align-middle">
+        <div class="row">
+            <div class="col-lg-12 d-flex" style="padding-bottom: 100px">
+                <div><h1 style="padding-top: 50px">Productos</h1></div>
+            </div>
+            <div class="col-md-5 offset-md-1 d-flex justify-content-center">
+                <div class="border border-5 rounded" style="cursor: pointer" onclick="navegar('simulacion')">
+                    <img src="logosim.PNG">
+                    <h3 style="font-weight: bold">Simulador</h3>
+                    <h4>Simula tu local, contrata cajeros y evalúa la calidad de atención</h4>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="border border-5 rounded" style="cursor: pointer" onclick="navegar('inferencia')">
+                    <img src="logorepo.PNG">
+                    <h3 style="font-weight: bold">Reporteria</h3>
+                    <h4>Sube tus datos y descubre cómo están funcionando tus locales</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="simulacion" class="container h-100 align-middle">
+        <div class="row h-100">
+            <div class="col-lg-12 h-100 my-auto">
+                <div><h1 style="padding-top: 50px">Simulación</h1></div>
+                <div class="w-100">
+                    <div id="spsim" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <div class="container h-100 align-middle">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-12">
+                                                <h2>
+                                                    Simula tu local y sus condiciones y vé como se comportarían las colas..
+                                                    <br>
+                                                    mas texto
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 offset-md-5">
+                                                <button class="btn btn-primary" type="button" onclick="simgo()">
+                                                    Go
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 offset-lg-3 d-flex">
+                                                <h2>Tasa de llegada de clientes</h2>
+                                                <button class="splide__arrow splide__arrow--prev" type="button" onclick="simback()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                                <button class="splide__arrow splide__arrow--next" type="button" onclick="simgo()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-10 offset-lg-1">
+                                                <div style="width: 100%; overflow: auto">
+                                                    <svg id="distrg" style="height: 60vh; min-height: 400px; width: 100%; min-width: 500px;"></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-4 offset-lg-3">
+                                                <h2>Cuántos clientes llegaron en el día?</h2>
+                                                <button class="splide__arrow splide__arrow--prev" type="button" onclick="simback()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                                <button class="splide__arrow splide__arrow--next" type="button" onclick="simgo()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <input class="form-control" type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-4 offset-lg-3">
+                                                <h2>Cuánto tarda un cajero en atender a un cliente? (En promedio)</h2>
+                                                <button class="splide__arrow splide__arrow--prev" type="button" onclick="simback()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                                <button class="splide__arrow splide__arrow--next" type="button" onclick="simgo()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <input class="form-control" type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container">
+                                        <div class="row" style="padding-top: 20px">
+                                            <div class="col-lg-4 offset-lg-3">
+                                                <h2>Cantidad de cajeros</h2>
+                                                <button class="splide__arrow splide__arrow--prev" type="button" onclick="simback()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                                <button class="splide__arrow splide__arrow--next" type="button" onclick="simgo()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 20px">
+                                            <div class="col-lg-3 offset-lg-4">
+                                                <h4>Bloque 8AM a 12AM</h4>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <input type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 20px">
+                                            <div class="col-lg-3 offset-lg-4">
+                                                <h4>Bloque 12AM a 17PM</h4>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <input type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 20px">
+                                            <div class="col-lg-3 offset-lg-4">
+                                                <h4>Bloque 17PM a 10PM</h4>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <input type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6 offset-lg-3">
+                                            <h2>Ingresa tu nombre y correo para recibir los resultados</h2>
+                                            <button class="splide__arrow splide__arrow--prev" type="button" onclick="simback()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                                    <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 20px">
+                                        <div class="col-lg-4 offset-md-4">
+                                            <input class="form-control" type="text" placeholder="nombre">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 20px">
+                                        <div class="col-lg-4 offset-md-4">
+                                            <input class="form-control" type="email" placeholder="correo">
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center" style="padding-top: 20px">
+                                        <div class="col-lg-2 offset-lg-5">
+                                            <button class="btn btn-primary" onclick="simular()">Simular</button>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6 offset-lg-3">
+                                            <h2>Loading</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-9 offset-lg-3 d-flex">
+                                            <h3 style="padding-right: 20px">1.  Simulando datos:</h3>
+                                            <div id="paso1" class="spinner-border" role="status">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-9 offset-lg-3 d-flex">
+                                            <h3 style="padding-right: 20px">2.  Calculando indicadores para un día:</h3>
+                                            <div id="paso2" class="spinner-border" role="status">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-9 offset-lg-3 d-flex">
+                                            <h3 style="padding-right: 20px">3.  Analizando situaciones al contratar distinto # de cajeros:</h3>
+                                            <div id="paso3" class="spinner-border" role="status">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="gsim1" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="gsim2" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="gsim3" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="gsim4" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-3 offset-md-4">
+                                            <button class="btn btn-primary" onclick="simgo()">
+                                                Ver mas funcionalidades
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container h-100 align-middle">
+                                        <div class="row h-100">
+                                            <div class="col-lg-12 h-100 my-auto">
+                                                <div><h1 style="padding-top: 50px">Version full simulaciones</h1></div>
+                                                <div class="h-50 w-75 my-auto" style="background-color: white; color: black">texto / infograma que muestre todo lo que puedes hacer con la versión full</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress" style="display: none">
+                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="inferencia" class="container h-100 align-middle">
+        <div class="row h-100">
+            <div class="col-lg-12 h-100 my-auto">
+                <div><h1 style="padding-top: 50px">Reporteria</h1></div>
+                <div class="w-100">
+                    <div id="spinf" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <div class="container h-100 align-middle">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-12">
+                                                <h2>
+                                                    También puedes probarlo en tus propios datos!
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 offset-md-1">
+                                                <p>
+                                                    Instrucciones del documento csv
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                                </div>
+                                                <button class="btn btn-primary" onclick="infgo()">Probar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                                <li class="splide__slide">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="ginf1" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="ginf2" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="ginf3" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div style="width: 100%; overflow: auto">
+                                                <svg id="ginf4" class="graphsim"></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-3 offset-md-4">
+                                            <button class="btn btn-primary" onclick="infgo()">
+                                                Ver mas funcionalidades
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="container h-100 align-middle">
+                                        <div class="row h-100">
+                                            <div class="col-lg-12 h-100 my-auto">
+                                                <div><h1 style="padding-top: 50px">Version full inferencia</h1></div>
+                                                <div class="h-50 w-75 my-auto" style="background-color: white; color: black">texto / infograma que muestre todo lo que puedes hacer con la versión full</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contacto" class="container h-100 align-middle">
+        <div class="row h-100">
+            <div class="col-lg-12 h-100 my-auto">
+                <div><h1 style="padding-top: 50px">Interesado? Te contactamos</h1></div>
+                <div>
+                    <input class="form-control" type="text" placeholder="Nombre" style="width: 30rem">
+                    <br>
+                    <input class="form-control" type="email" placeholder="email" style="width: 30rem">
+                    <br>
+                    <textarea class="form-control" rows="10" style="width: 60rem"></textarea>
+                </div>
+                <div>
+                    <h1 style="padding-top: 50px">O contactanos directamente en contacto@algo.com</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+-->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script type="application/javascript">
+    let carruselsim;
+    document.addEventListener( 'DOMContentLoaded', function () {
+        carruselsim = new Splide( '#spsim',{
+            arrows: false,
+            pagination: false,
+            drag: false
+        } ).mount();
+    } );
+    let carruselinf;
+    document.addEventListener( 'DOMContentLoaded', function () {
+        carruselinf = new Splide( '#spinf',{
+            arrows: false,
+            pagination: false,
+            drag: false
+        } ).mount();
+    } );
+    // window.addEventListener("wheel", e => e.preventDefault(), { passive:false })
+    const zonas = ['home','video','productos','contacto'];
+    let zactual = 'home';
+    let simpage = 0;
+    document.getElementById(zactual).scrollIntoView();
+    window.addEventListener('mousewheel', function(e){
+        e.preventDefault();
+        wDelta = e.wheelDelta < 0 ? 'down' : 'up';
+        let ind = zonas.indexOf(zactual);
+        if (wDelta == 'up'){
+            if (zactual!='home'){
+                navegar(zonas[ind-1]);
+            }
+        }
+        else if (wDelta == 'down'){
+            if (zactual!='contacto'){
+                navegar(zonas[ind+1]);
+            }
+        }
+    },{passive:false});
+
+    function navegar(zona){
+        document.getElementById(zona).scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+        d3.select('.circle_full').attr('class','circle_empty');
+        if (zona == 'simulacion' || zona == 'inferencia'){
+            d3.select('#bullet-productos').attr('class','circle_full');
+            zactual = 'productos';
+            simpage = 0;
+        }
+        else {
+            d3.select('#bullet-'+zona).attr('class','circle_full');
+            zactual = zona;
+        }
+    }
+
+    function simgo(){
+        carruselsim.go( '+1' );
+        simpage += 1;
+        let porsim = (simpage/5)*100;
+        if (simpage==1){
+            d3.select('.progress').style('display','flex');
+        }
+        if (simpage>=6){
+            d3.select('.progress').style('display','none');
+        }
+        d3.select('.progress-bar').attr('aria-valuenow',porsim).style('width',porsim+'%').text(porsim+'%')
+    }
+
+    function infgo(){
+        carruselinf.go( '+1' );
+    }
+
+    function simback(){
+        carruselsim.go( '-1' );
+        simpage -= 1;
+        let porsim = (simpage/5)*100;
+        if (simpage==0){
+            d3.select('.progress').style('display','none');
+        }
+        d3.select('.progress-bar').attr('aria-valuenow',porsim).style('width',porsim+'%').text(porsim+'%')
+    }
+
+    function simular(){
+        carruselsim.go( '+1' );
+        d3.select('.progress').style('display','none');
+        setTimeout(function () {
+            d3.select('#paso1').attr('class',null).attr('role',null).html('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">\n' +
+                '  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>\n' +
+                '</svg>')
+        }, 5000);
+        setTimeout(function () {
+            d3.select('#paso2').attr('class',null).attr('role',null).html('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">\n' +
+                '  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>\n' +
+                '</svg>')
+        }, 10000);
+        setTimeout(function () {
+            d3.select('#paso3').attr('class',null).attr('role',null).html('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">\n' +
+                '  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>\n' +
+                '</svg>')
+        }, 15000);
+        setTimeout(function () {
+            carruselsim.go( '+1' );
+        }, 16000);
+
+    }
+
+</script>
+
+<script src="distrGraph.js"></script>
+<script src="simGraphs.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+</body>
+</html>
