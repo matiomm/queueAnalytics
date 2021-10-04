@@ -70,26 +70,26 @@
 	}
 
 	.titulo{
-		font-size: 4rem;
+		font-size: 10vh;
 		font-weight: bold;
 		padding-top: 10vh;
 	}
 	.titulo_3{
-		font-size: 4rem;
+		font-size: 10vh;
 		font-weight: bold;
 		padding-top: calc(10vh - 3rem);
 	}
 
 		.titulo_4{
-			font-size: 2rem;
+			font-size: 4vh;
 			font-weight: bold;
 		}
 		.titulo_5{
-			font-size: 1.5rem;
+			font-size: 3vh;
 		}
 
 	.titulo2{
-		font-size: 2.5rem;
+		font-size: 7vh;
 		font-weight: bold;
 	}
 	input{
@@ -146,6 +146,7 @@
 	.volver-container{
 		width: 0;
 		height: 0;
+		font-size: 3vh;
 	}
 
 	.back-container{
@@ -217,7 +218,29 @@
 		background-color: #9775c5;
 		border-color: #9775c5;
 	}
-
+	.como_descr{
+		text-align: justify;
+		font-size: 4vh;
+	}
+	.intro_descr{
+		font-size: 4vh;
+	}
+	.prueba_descr{
+		font-size: 3vh;
+		text-align: justify;
+	}
+	.graph_title{
+		font-size: 3vh;
+		font-weight: bold;
+		height: 6vh;
+	}
+		.form-control-xs {
+			height: calc(1em + .375rem + 2px) !important;
+			padding: .125rem .25rem !important;
+			font-size: 2vh !important;
+			line-height: 1.ee5;
+			border-radius: .2rem;
+		}
 
 	</style>
 
@@ -254,17 +277,17 @@
 					<div style="width: 23%; height: 50vh; margin-left: 5%; margin-right: 5%">
 						<img src="img/predict.png" style="height: 20vh">
 						<div class="titulo2">Predecir</div>
-						<div style="font-size: 1rem">la demanda futura de tus tiendas en el próximo día, semana y mes.</div>
+						<div class="intro_descr">la demanda futura de tus tiendas en el próximo día, semana y mes.</div>
 					</div>
 					<div style="width: 23%; height: 50vh; margin-left: 5%; margin-right: 5%">
 						<img src="img/plan%20copy.png" style="height: 20vh">
 						<div class="titulo2">Planificar</div>
-						<div style="font-size: 1rem">la dotación de personal que necesitas para cumplir tus metas.</div>
+						<div class="intro_descr">la dotación de personal que necesitas para cumplir tus metas.</div>
 					</div>
 					<div style="width: 23%; height: 50vh; margin-left: 5%; margin-right: 5%">
 						<img src="img/evaluate.png" style="height: 20vh">
 						<div class="titulo2">Evaluar</div>
-						<div style="font-size: 1rem">los largos de cola en tus locales, en el pasado y en tiempo real.</div>
+						<div class="intro_descr">los largos de cola en tus locales, en el pasado y en tiempo real.</div>
 					</div>
 				</div>
 			</div>
@@ -285,15 +308,15 @@
 					<div style="width: 50%; margin-left: 25%">
 						<div style="display: flex; margin:2vh">
 							<div class="titulo2">1.</div>
-							<div style="text-align: justify"><b>Rescatamos</b> trabajos antiguos de <u>teoría de colas.</u></div>
+							<div class="como_descr"><b>Rescatamos</b> trabajos antiguos de <u>teoría de colas.</u></div>
 						</div>
 						<div style="display: flex; margin:2vh">
 							<div class="titulo2">2.</div>
-							<div style="text-align: justify">Los <b>combinamos</b> para poder predecir, planificar y evaluar las colas de un local simulado.</div>
+							<div class="como_descr">Los <b>combinamos</b> para poder predecir, planificar y evaluar las colas de un local simulado.</div>
 						</div>
 						<div style="display: flex; margin:2vh">
 							<div class="titulo2">3.</div>
-							<div style="text-align: justify">Los <b>adaptamos</b> utilizando técnicas de <b>machine learning</b> para que funcionen en casos reales.</div>
+							<div class="como_descr">Los <b>adaptamos</b> utilizando técnicas de <b>machine learning</b> para que funcionen en casos reales.</div>
 						</div>
 					</div>
 				</div>
@@ -320,12 +343,12 @@
 						<div class="producto" style="margin-right: 5%;" onclick="goPlan()">
 							<img src="img/plan%20copy.png" style="height: 20vh">
 							<div class="titulo2">Planificar</div>
-							<div style="font-size: 1rem">Simula un escenario y verifica</div>
+							<div class="prueba_descr">Simula un escenario y verifica</div>
 						</div>
 						<div class="producto" style="margin-left: 5%;" onclick="goEval()">
 							<img src="img/evaluate.png" style="height: 20vh">
 							<div class="titulo2">Evaluar</div>
-							<div style="font-size: 1rem">Carga datos de una caja de tu local y verifica las colas que se forman</div>
+							<div class="prueba_descr">Carga datos de una caja de tu local y verifica las colas que se forman</div>
 						</div>
 
 					</div>
@@ -347,14 +370,13 @@
 						</div>
 					</div>
 					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
 					</div>
 					<div style="height: 50%; display: flex; padding-left: 10%; padding-right: 10%">
 						<div style="margin-right: 30px">
 							<img src="img/plan%20copy.png" style="height: 20vh">
 							<div class="titulo2">Planificar</div>
 						</div>
-						<div style="text-align: justify">
+						<div class="prueba_descr">
 							<b>Simularas el funcionamiento de un punto de servicio (POS) a lo largo de un día</b>
 							<ol>
 								<li style="list-style: decimal">Ingresa la distribución de llegada de clientes</li>
@@ -372,6 +394,8 @@
 			</div>
 		</div>
 
+
+
 		<div class="slide" id="slide3">
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
@@ -383,18 +407,19 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
+					<div style="height: 15%">
+						<div class="titulo2">Distribución de llegada de clientes</div>
 					</div>
-					<div style="height: 50%; display: flex">
-						<div style="width: 50%; margin-left: 25%">
-							<div style="font-weight: bold; text-align: start">
-								Distribución llegada de clientes
-							</div>
-							<svg id="distrg" style="width: 100%; height: 400px">
+					<div style="height: 50%; display: block">
+						<div style="height: 100%; width: 50%; margin-left: 25%">
+							<div style="height: 100%; display: flex">
 
-							</svg>
+								<svg id="distrg" style="width: 100%; height: 100%;">
+								</svg>
+							</div>
 						</div>
+					</div>
+					<div style="height: 5%">
 					</div>
 					<div style="height: 20%">
 						<button class="btn btn-moradete" onclick="siguiente()">Continuar</button>
@@ -402,7 +427,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="slide" id="slide4">
 			<div class="intro h-100 w-100">
@@ -416,13 +440,12 @@
 						</div>
 					</div>
 					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
 					</div>
 					<div style="height: 50%; display: flex">
 						<div style="width: 50%; margin-left: 25%">
 							<div style="display: flex">
 								<div style="font-weight: bold; text-align: justify; width: 80%; padding-left: 5%; padding-right: 5%">
-									Número de clientes que son atendidos en un día:
+									Número de clientes que son atendidos en un día
 								</div>
 								<div style="width: 20%">
 									<input type="number" class="form-control">
@@ -431,12 +454,11 @@
 						</div>
 					</div>
 					<div style="height: 20%">
-						<button class="btn btn-moradete" onclick="simular()">Simular</button>
+						<button class="btn btn-moradete" onclick="siguiente()">Continuar</button>
 					</div>
 				</div>
 			</div>
 		</div>
-
 
 		<div class="slide" id="slide5">
 			<div class="intro h-100 w-100">
@@ -450,33 +472,25 @@
 						</div>
 					</div>
 					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
 					</div>
-					<div style="height: 70%; display: flex;">
+					<div style="height: 50%; display: flex">
 						<div style="width: 50%; margin-left: 25%">
 							<div style="display: flex">
-								<div style="padding-right: 20px; text-align: left">1.  Simulando datos:</div>
-								<div id="paso1" class="spinner-border" role="status">
-									<span class="sr-only"></span>
+								<div style="font-weight: bold; text-align: justify; width: 80%; padding-left: 5%; padding-right: 5%">
+									¿Cuantos segundos tarda un cajero en atender un cliente?
 								</div>
-							</div>
-							<div style="display: flex">
-								<div style="padding-right: 20px; text-align: left">2.  Calculando indicadores para un día:</div>
-								<div id="paso2" class="spinner-border" role="status">
-									<span class="sr-only"></span>
-								</div>
-							</div>
-							<div style="display: flex">
-								<div style="padding-right: 20px; text-align: left">3.  Analizando situaciones al contratar distinto # de cajeros:</div>
-								<div id="paso3" class="spinner-border" role="status">
+								<div style="width: 20%">
+									<input type="number" class="form-control">
 								</div>
 							</div>
 						</div>
 					</div>
+					<div style="height: 20%">
+						<button class="btn btn-moradete" onclick="siguiente()">Continuar</button>
+					</div>
 				</div>
 			</div>
 		</div>
-
 
 
 		<div class="slide" id="slide6">
@@ -490,83 +504,174 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 80%; display: block">
-						<div style="height: 50%; width: 80%; margin-left: 10%; display: flex">
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Cantidad estimada de gente en fila por hora</div>
-								<svg id="gsim1" style="width: 90%; height: 80%"></svg>
-							</div>
-							<div style="width: 50%" align="center">
-								<div style="height: 10%; font-size: 1rem">Probabilidad de encontrar fila vacia por hora</div>
-								<div style="height: 15%;">
-									<select class="form-control form-control-sm" style="width: 30%;" onchange="changePie(this)">
-										<option value="10">
-											10 AM
-										</option>
-										<option value="11">
-											11 AM
-										</option>
-										<option value="12">
-											12 AM
-										</option>
-										<option value="13">
-											1 PM
-										</option>
-										<option value="14">
-											2 PM
-										</option>
-										<option value="15">
-											3 PM
-										</option>
-										<option value="16">
-											4 PM
-										</option>
-										<option value="17">
-											5 PM
-										</option>
-										<option value="18">
-											6 PM
-										</option>
-										<option value="19">
-											7 PM
-										</option>
-										<option value="20">
-											8 PM
-										</option>
-										<option value="21">
-											9 PM
-										</option>
-										<option value="22">
-											10 PM
-										</option>
-										<option value="23">
-											11 PM
-										</option>
-									</select>
-								</div>
-								<svg id="gsim2" style="width: 80%; height: 70%"></svg>
-							</div>
+					<div style="height: 20%;">
+						<div class="titulo2">
+							¿Cuantas cajas abiertas hay por bloque horario?
 						</div>
-						<div style="height: 50%; width: 80%; margin-left: 10%; display: flex">
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Tiempo promedio que espera un cliente para ser atendido</div>
-								<svg id="gsim3" style="width: 90%; height: 80%"></svg>
-							</div>
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Número de clientes atendidos por hora</div>
-								<svg id="gsim4" style="width: 90%; height: 80%"></svg>
-							</div>
+					</div>
+					<div style="height: 50%; display: block">
+						<div style="width: 50%; margin-left: 25%; height: 30%; display:flex">
+							<div style="width: 50%; font-size:5vh; font-weight:bold">8 a 12</div>
+							<div style="width: 30%; max-width:150px"><input type="number" class="form-control"></div>
+						</div>
+						<div style="width: 50%; margin-left: 25%; height: 30%; display:flex">
+							<div style="width: 50%; font-size:5vh; font-weight:bold">12 a 17</div>
+							<div style="width: 30%; max-width:150px"><input type="number" class="form-control"></div>
+						</div>
+						<div style="width: 50%; margin-left: 25%; height: 30%; display:flex">
+							<div style="width: 50%; font-size:5vh; font-weight:bold">17 a 22</div>
+							<div style="width: 30%; max-width:150px"><input type="number" class="form-control"></div>
 						</div>
 					</div>
 					<div style="height: 20%">
-						<button class="btn btn-moradete" onclick="simular()">Ver mas</button>
+						<button class="btn btn-moradete" onclick="simular()">Simular</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 
+
+
 		<div class="slide" id="slide7">
+			<div class="intro h-100 w-100">
+				<div class="h-100 w-100" style="position: relative;">
+					<div class="back-container" style="position: relative;">
+						<div class="arrow-container">
+							<div class="arrow-left" onclick="volver()"></div>
+						</div>
+						<div class="volver-container">
+							<div>volver</div>
+						</div>
+					</div>
+					<div style="height: 10%">
+					</div>
+					<div style="height: 70%; display: flex;">
+						<div style="width: 50%; margin-left: 25%">
+							<div style="display: flex">
+								<div style="padding-right: 20px; text-align: left">1.  Simulando datos:</div>
+								<div id="paso1" class="spinner-border" role="status">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							<div style="display: flex">
+								<div style="padding-right: 20px; text-align: left">2.  Calculando indicadores para un día:</div>
+								<div>
+									<div id="paso2" class="spinner-border" role="status">
+										<span class="sr-only"></span>
+									</div>
+								</div>
+							</div>
+							<div style="display: flex">
+								<div style="padding-right: 20px; text-align: left">3.  Analizando situaciones al contratar distinto # de cajeros:</div>
+								<div>
+									<div id="paso3" class="spinner-border" role="status">
+										<span class="sr-only"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="slide" id="slide8">
+			<div class="intro h-100 w-100">
+				<div class="h-100 w-100" style="position: relative;">
+					<div class="back-container" style="position: relative;">
+						<div class="arrow-container">
+							<div class="arrow-left" onclick="volver()"></div>
+						</div>
+						<div class="volver-container">
+							<div>volver</div>
+						</div>
+					</div>
+					<div style="height: 90%; display: block">
+						<div style="height: 40%; width: 80%; margin-left: 10%; display: flex">
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Cantidad estimada de gente en fila por hora</div>
+								<svg id="gsim1" style="width: 90%; height: 90%"></svg>
+							</div>
+							<div style="width: 50%; height: 100%;" align="center">
+								<div class="graph_title">Probabilidad de encontrar fila vacia por hora</div>
+								<div style="height: 15%;" class="d-flex justify-content-center">
+									<div style="font-size:2vh; margin-right: 2vh">Hora: </div>
+									<div>
+										<select class="form-control form-control-xs" style="max-width:6vw" onchange="changePie(this)">
+											<option value="10">
+												10 AM
+											</option>
+											<option value="11">
+												11 AM
+											</option>
+											<option value="12">
+												12 AM
+											</option>
+											<option value="13">
+												1 PM
+											</option>
+											<option value="14">
+												2 PM
+											</option>
+											<option value="15">
+												3 PM
+											</option>
+											<option value="16">
+												4 PM
+											</option>
+											<option value="17">
+												5 PM
+											</option>
+											<option value="18">
+												6 PM
+											</option>
+											<option value="19">
+												7 PM
+											</option>
+											<option value="20">
+												8 PM
+											</option>
+											<option value="21">
+												9 PM
+											</option>
+											<option value="22">
+												10 PM
+											</option>
+											<option value="23">
+												11 PM
+											</option>
+										</select>
+									</div>
+								</div>
+								<svg id="gsim2" style="width: 90%; height: 70%"></svg>
+							</div>
+						</div>
+						<div style="height: 5%; width: 80%; margin-left: 10%; display: flex"></div>
+						<div style="height: 40%; width: 80%; margin-left: 10%; display: flex">
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Tiempo promedio que espera un cliente para ser atendido</div>
+								<svg id="gsim3" style="width: 90%; height: 90%"></svg>
+							</div>
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Número de clientes atendidos por hora</div>
+								<svg id="gsim4" style="width: 90%; height: 90%"></svg>
+							</div>
+						</div>
+						<div style="height: 5%">
+						</div>
+						<div>
+							<button class="btn btn-moradete" onclick="simular()">Ver mas</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="slide" id="slide9">
 
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
@@ -578,11 +683,8 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
-					</div>
 					<div style="height: 60%; display: flex; padding-left: 10%; padding-right: 10%; display: block; text-align: left">
-						<div style="font-size: 1.5rem; font-weight: bold; text-align: center">Con la versión completa podrás:</div>
+						<div style="font-size: 5vh; font-weight: bold; text-align: center">Con la versión completa podrás:</div>
 						<div class="titulo_4">
 							+ Escala
 						</div>
@@ -622,7 +724,7 @@
 
 
 
-		<div class="slide" id="slide8">
+		<div class="slide" id="slide10">
 
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
@@ -634,10 +736,9 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
+					<div style="height: 10%">
 					</div>
-					<div style="height: 50%; display: flex; padding-left: 10%; padding-right: 10%">
+					<div style="height: 50%; display: flex; padding-left: 10%; padding-right: 10%; font-size: 4vh">
 						<div style="margin-right: 30px">
 							<img src="img/evaluate.png" style="height: 20vh">
 							<div class="titulo2">Evaluar</div>
@@ -660,7 +761,7 @@
 			</div>
 		</div>
 
-		<div class="slide" id="slide9">
+		<div class="slide" id="slide11">
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
 					<div class="back-container" style="position: relative;">
@@ -671,15 +772,12 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
-					</div>
-					<div style="width: 80%; margin-left: 10%">
-						<div class="d-flex justify-content-center align-middle" style="display: flex; margin:2vh; font-size: 1rem; text-align: center">
+					<div style="width: 80%; margin-left: 10%;">
+						<div class="d-flex justify-content-center align-middle" style="display: flex; margin:2vh;   font-size: 5vh; text-align: center">
 							<img src="img/download_white.png" style="height: 5vh; margin-right: 10px">
 							<b>Descargar planilla</b>
 						</div>
-						<div style="display: block; margin:2vh; background-color:#775e9d; border-radius: 1vw; font-size: 1rem; text-align: justify">
+						<div style="display: block; margin:2vh; background-color:#775e9d; border-radius: 1vw; font-size: 3vh; text-align: justify; padding-right: 3vh">
 							<div style="text-align: center"><b>Instrucciones de llenado</b></div>
 							<ol>
 								<li style="list-style: decimal">
@@ -695,12 +793,12 @@
 								</li>
 							</ol>
 						</div>
-						<div class="d-block justify-content-center align-middle" style="display: flex; margin:2vh; font-size: 1rem; text-align: center">
+						<div class="d-block justify-content-center align-middle" style="display: flex;font-size: 3vh; text-align: center">
 							<div>
 								<b>Sube la planilla completada</b>
 							</div>
 							<div class="d-flex" style="padding-left:25%; padding-right:25%">
-								<input type="file" class="form-control"><img src="img/download_white.png" style="height: 5vh; margin-right: 10px">
+								<input type="file" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -711,7 +809,7 @@
 			</div>
 		</div>
 
-		<div class="slide" id="slide10">
+		<div class="slide" id="slide12">
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
 					<div class="back-container" style="position: relative;">
@@ -722,83 +820,89 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 80%; display: block">
-						<div style="height: 50%; width: 80%; margin-left: 10%; display: flex">
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Cantidad estimada de gente en fila por hora</div>
-								<svg id="ginf1" style="width: 90%; height: 80%"></svg>
+					<div style="height: 90%; display: block">
+						<div style="height: 40%; width: 80%; margin-left: 10%; display: flex">
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Cantidad estimada de gente en fila por hora</div>
+								<svg id="ginf1" style="width: 90%; height: 90%"></svg>
 							</div>
-							<div style="width: 50%" align="center">
-								<div style="height: 10%; font-size: 1rem">Probabilidad de encontrar fila vacia por hora</div>
-								<div style="height: 15%;">
-									<select class="form-control form-control-sm" style="width: 30%;" onchange="changePie(this)">
-										<option value="10">
-											10 AM
-										</option>
-										<option value="11">
-											11 AM
-										</option>
-										<option value="12">
-											12 AM
-										</option>
-										<option value="13">
-											1 PM
-										</option>
-										<option value="14">
-											2 PM
-										</option>
-										<option value="15">
-											3 PM
-										</option>
-										<option value="16">
-											4 PM
-										</option>
-										<option value="17">
-											5 PM
-										</option>
-										<option value="18">
-											6 PM
-										</option>
-										<option value="19">
-											7 PM
-										</option>
-										<option value="20">
-											8 PM
-										</option>
-										<option value="21">
-											9 PM
-										</option>
-										<option value="22">
-											10 PM
-										</option>
-										<option value="23">
-											11 PM
-										</option>
-									</select>
+							<div style="width: 50%; height: 100%;" align="center">
+								<div class="graph_title">Probabilidad de encontrar fila vacia por hora</div>
+								<div style="height: 15%;" class="d-flex justify-content-center">
+									<div style="font-size:2vh; margin-right: 2vh">Hora: </div>
+									<div>
+										<select class="form-control form-control-xs" style="max-width:6vw" onchange="changePie(this)">
+											<option value="10">
+												10 AM
+											</option>
+											<option value="11">
+												11 AM
+											</option>
+											<option value="12">
+												12 AM
+											</option>
+											<option value="13">
+												1 PM
+											</option>
+											<option value="14">
+												2 PM
+											</option>
+											<option value="15">
+												3 PM
+											</option>
+											<option value="16">
+												4 PM
+											</option>
+											<option value="17">
+												5 PM
+											</option>
+											<option value="18">
+												6 PM
+											</option>
+											<option value="19">
+												7 PM
+											</option>
+											<option value="20">
+												8 PM
+											</option>
+											<option value="21">
+												9 PM
+											</option>
+											<option value="22">
+												10 PM
+											</option>
+											<option value="23">
+												11 PM
+											</option>
+										</select>
+									</div>
 								</div>
-								<svg id="ginf2" style="width: 80%; height: 70%"></svg>
+								<svg id="ginf2" style="width: 90%; height: 70%"></svg>
 							</div>
 						</div>
-						<div style="height: 50%; width: 80%; margin-left: 10%; display: flex">
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Tiempo promedio que espera un cliente para ser atendido</div>
-								<svg id="ginf3" style="width: 90%; height: 80%"></svg>
+						<div style="height: 5%; width: 80%; margin-left: 10%; display: flex"></div>
+						<div style="height: 40%; width: 80%; margin-left: 10%; display: flex">
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Tiempo promedio que espera un cliente para ser atendido</div>
+								<svg id="ginf3" style="width: 90%; height: 90%"></svg>
 							</div>
-							<div style="width: 50%">
-								<div style="height: 10%; font-size: 1rem">Número de clientes atendidos por hora</div>
-								<svg id="ginf4" style="width: 90%; height: 80%"></svg>
+							<div style="width: 50%; height: 100%;">
+								<div class="graph_title">Número de clientes atendidos por hora</div>
+								<svg id="ginf4" style="width: 90%; height: 90%"></svg>
 							</div>
 						</div>
-					</div>
-					<div style="height: 20%">
-						<button class="btn btn-moradete" onclick="simular()">Ver mas</button>
+						<div style="height: 5%">
+						</div>
+						<div>
+							<button class="btn btn-moradete" onclick="simular()">Ver mas</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
 
-		<div class="slide" id="slide11">
+		<div class="slide" id="slide13">
 
 			<div class="intro h-100 w-100">
 				<div class="h-100 w-100" style="position: relative;">
@@ -810,11 +914,8 @@
 							<div>volver</div>
 						</div>
 					</div>
-					<div style="height: 20%">
-						<div class="titulo_3">pruébame</div>
-					</div>
 					<div style="height: 60%; display: flex; padding-left: 10%; padding-right: 10%; display: block; text-align: left">
-						<div style="font-size: 1.5rem; font-weight: bold; text-align: center">Con la versión completa podrás:</div>
+						<div style="font-size: 6vh; font-weight: bold; text-align: center">Con la versión completa podrás:</div>
 						<div class="titulo_4">
 							+ Escala
 						</div>
@@ -899,7 +1000,7 @@
 	}
 
 	function goEval(){
-		myFullpage.silentMoveTo(4,7);
+		myFullpage.silentMoveTo(4,9);
 	}
 
 	function volver(){
